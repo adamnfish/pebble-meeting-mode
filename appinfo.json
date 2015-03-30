@@ -1,0 +1,25 @@
+{
+  "uuid": "31c27bfb-7627-4109-b947-a9528fcafa23",
+  "shortName": "meeting-mode",
+  "longName": "meeting-mode",
+  "companyName": "adamnfish",
+  "versionCode": 0.1,
+  "versionLabel": "0.1",
+  "sdkVersion": "3",
+  "targetPlatforms": ["aplite", "basalt"],
+  "watchapp": {
+    "watchface": true
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": [
+      {
+        "type": "font",
+        "name": "ROBOTO_70",
+        "file": "font.ttf"
+      }
+    ]
+  }
+}
