@@ -26,9 +26,6 @@ You can also install old versions of the app from the source code
 using the SDK, or via the `pbw` files that are available in the
 Releases section of this repository.
 
-This watchface (as well as the other things I've developed for the
-Pebble) will be available in the Pebble appstore soon.
-
 ## Issues / contact
 
 If you find any problems or generally have any questions or
