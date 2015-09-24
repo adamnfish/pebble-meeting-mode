@@ -1,15 +1,20 @@
 #include <pebble.h>
 
 static Window *window;
-static TextLayer *text_layer;
+static TextLayer *minutes_text_layer;
+static TextLayer *hours_text_layer;
 static GFont *font;
 
 
 static void update_time(struct tm *tick_time) {
-  static char buffer[] = "00";
+  static char minutes_buffer[] = "00";
+  static char hours_buffer[] = "00";
 
-  strftime(buffer, sizeof("00"), "%M", tick_time);
-  text_layer_set_text(text_layer, buffer);
+  strftime(minutes_buffer, sizeof("00"), "%M", tick_time);
+  text_layer_set_text(minutes_text_layer, minutes_buffer);
+
+  strftime(hours_buffer, sizeof("00"), "%H", tick_time);
+  text_layer_set_text(hours_text_layer, hours_buffer);
 }
 
 static void window_load(Window *window) {
@@ -18,11 +23,17 @@ static void window_load(Window *window) {
 
   font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_ROBOTO_70));
 
-  text_layer = text_layer_create((GRect) { .origin = { 0, 38 }, .size = { bounds.size.w, 100 } });
-  text_layer_set_text(text_layer, "..");
-  text_layer_set_text_alignment(text_layer, GTextAlignmentCenter);
-  text_layer_set_font(text_layer, font);
-  layer_add_child(window_layer, text_layer_get_layer(text_layer));
+  minutes_text_layer = text_layer_create((GRect) { .origin = { 0, 38 }, .size = { bounds.size.w, 100 } });
+  text_layer_set_text(minutes_text_layer, "..");
+  text_layer_set_text_alignment(minutes_text_layer, GTextAlignmentCenter);
+  text_layer_set_font(minutes_text_layer, font);
+  layer_add_child(window_layer, text_layer_get_layer(minutes_text_layer));
+
+  hours_text_layer = text_layer_create((GRect) { .origin = { 8, 84 }, .size = { 20, 40 } });
+  text_layer_set_text(hours_text_layer, "..");
+  text_layer_set_text_alignment(hours_text_layer, GTextAlignmentCenter);
+  text_layer_set_font(hours_text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24));
+  layer_add_child(window_layer, text_layer_get_layer(hours_text_layer));
 
   time_t temp = time(NULL);
   struct tm *tick_time = localtime(&temp);
@@ -31,7 +42,7 @@ static void window_load(Window *window) {
 }
 
 static void window_unload(Window *window) {
-  text_layer_destroy(text_layer);
+  text_layer_destroy(minutes_text_layer);
   fonts_unload_custom_font(font);
 }
 
