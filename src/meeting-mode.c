@@ -36,16 +36,31 @@ static void window_unload(Window *window) {
 }
 
 static void tick_handler(struct tm *tick_time, TimeUnits time_changed) {
-  static const uint32_t const double_segments[] = { 200, 250, 200 };
+  static const uint32_t const single_segment[] = { 80 };
+  VibePattern single_pattern = {
+    .durations = single_segment,
+    .num_segments = ARRAY_LENGTH(single_segment),
+  };
+  static const uint32_t const double_segments[] = { 80, 85, 80 };
   VibePattern double_pattern = {
     .durations = double_segments,
     .num_segments = ARRAY_LENGTH(double_segments),
   };
+  static const uint32_t const triple_segments[] = { 80, 85, 80, 85, 80 };
+  VibePattern triple_pattern = {
+    .durations = triple_segments,
+    .num_segments = ARRAY_LENGTH(triple_segments),
+  };
 
-  if ((tick_time->tm_min % 15) == 0) {
+  if (tick_time->tm_min == 0) {
+    // triple vibrate on the hour
+    vibes_enqueue_custom_pattern(triple_pattern);
+  } else if ((tick_time->tm_min % 15) == 0) {
+    // double vibrate every 15 minutes
     vibes_enqueue_custom_pattern(double_pattern);
   } else if ((tick_time->tm_min % 5) == 0) {
-    vibes_short_pulse();
+    // single short vibration every 5 minutes
+    vibes_enqueue_custom_pattern(single_pattern);
   }
   update_time(tick_time);
 }

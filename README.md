@@ -11,12 +11,16 @@ Meeting Mode has a very large and clear display of the minutes past
 the hour so it is easy to catch a glimpse of the time without being
 too obvious in an important meeting.
 
-### 5 minute vibration
+### Vibration to keep track of time's passage
 
-Meeting Mode will also make your Pebble subtly vibrate every 5 minutes
-so you can keep track of the time that has passed without having to
-look at your wrist. It vibrates slightly every 5 minutes and gives a
-distinctive double-vibrate every 15 minutes past the hour.
+Meeting Mode will make your Pebble subtly vibrate every 5 minutes so
+you can keep track of the time that has passed without having to look
+at your wrist. It vibrates slightly every 5 minutes, gives a
+distinctive double-vibrate every 15 minutes past the hour and will do
+a triple vibrate on the hour.
+
+This means you shouldn't even need to look at the watchface to keep
+track of how long your meeting has been.
 
 ## Installing
 
