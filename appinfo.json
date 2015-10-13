@@ -3,8 +3,8 @@
   "shortName": "Meeting mode",
   "longName": "Meeting mode",
   "companyName": "adamnfish",
-  "versionCode": 0.1,
-  "versionLabel": "0.1",
+  "versionCode": 0.2,
+  "versionLabel": "0.2",
   "sdkVersion": "3",
   "targetPlatforms": ["aplite", "basalt"],
   "watchapp": {

@@ -39,3 +39,9 @@ to hear if you've found it helpful. Pull Requests are welcome :-)
 ## Thanks
 
 Thanks to [@Fleagret](https://twitter.com/Fleagret) for the concept.
+
+## Changelist
+
+v0.2 - Update vibration patterns
+
+v0.1 - Initial release
